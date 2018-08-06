@@ -1,4 +1,5 @@
 #include "palavra.h"
+
 #include <iostream>
 
 int main() {
