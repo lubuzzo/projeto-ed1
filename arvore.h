@@ -18,6 +18,12 @@ public:
     raiz = NULL;
   };
 
+  bool vazia() {
+    if (raiz == NULL)
+      return 1;
+    return 0;
+  }
+
   void inserir(std::string x) {
     raiz = inserir(x, raiz);
   }

@@ -5,6 +5,11 @@
 int main() {
   Arvore t;
 
+  if(t.vazia())
+    std::cout << "vazia" << '\n';
+  else
+    std::cout << "não-vazia" << '\n';
+
   t.inserir("21");
   t.inserir("26");
   t.inserir("16");
@@ -20,6 +25,11 @@ int main() {
   t.inserir("39");
   t.inserir("70");
   t.display();
+
+  if(t.vazia())
+    std::cout << "vazia" << '\n';
+  else
+    std::cout << "não-vazia" << '\n';
 
   return 0;
 }
