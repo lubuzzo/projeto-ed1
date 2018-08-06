@@ -1,5 +1,12 @@
 #include <iostream>
 
+/*
+  TODO:
+    - Invés de árvore conter uma String, deveria conter uma Palavra (?)
+    - Falta a função de busca aqui. (Ao alterar para usar uma instância de Palavra no lugar de std::string, PRECISA manter como std::string no fundo - para poder usar os operadores de comparação de string
+    - Avaliar se a função `Inserir` deveria receber uma palavra e direto atribuir ao atributo do Objeto, ou deve receber uma String e nela criar o Objeto - potencial risco de perda de valor, na questão parâmentro x valor)
+*/
+
 using namespace std;
 
 class Arvore {
