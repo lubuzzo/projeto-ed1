@@ -81,7 +81,7 @@ public:
 
     void display_file() {
       std::ofstream ofs;
-      ofs.open("dic.txt", std::ofstream::out | std::ofstream::app);
+      ofs.open("dic.txt");
 
       inorder_file(raiz, ofs);
       //ofs << '\n';

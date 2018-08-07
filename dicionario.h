@@ -7,7 +7,6 @@
 /* TODO:
     - Falta a consulta (depende da consulta em árvore)
     - Precisa da consulta de palavra semelhante (2 primeiras letras iguais)
-    - Tá fazendo append no arquivo, precisa corrigir
 */
 
 class Dicionario {

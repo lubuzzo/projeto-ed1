@@ -9,6 +9,7 @@ int main() {
 
   dici.inserir("buzzo");
   dici.inserir("buzzinho");
+  dici.inserir("dimitri");
 
   return 0;
 }
