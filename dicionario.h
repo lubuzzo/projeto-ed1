@@ -6,6 +6,7 @@
 
 /* TODO:
     - Precisa da consulta de palavra semelhante (2 primeiras letras iguais)
+    - CHecar se o ifstream e o ofstream conseguiram abrir o arquivo
 */
 
 class Dicionario {
