@@ -7,5 +7,8 @@ int main() {
 
   dici.display();
 
+  dici.inserir("buzzo");
+  dici.inserir("buzzinho");
+
   return 0;
 }

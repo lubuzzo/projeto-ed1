@@ -71,6 +71,24 @@ public:
       inorder(t->direita);
     }
 
+    void inorder_file(no *t, std::ofstream& ofs) {
+      if(t == NULL)
+        return;
+      inorder_file(t->esquerda, ofs);
+      ofs << t->valor << '\n';
+      inorder_file(t->direita, ofs);
+    }
+
+    void display_file() {
+      std::ofstream ofs;
+      ofs.open("dic.txt", std::ofstream::out | std::ofstream::app);
+
+      inorder_file(raiz, ofs);
+      //ofs << '\n';
+
+      ofs.close();
+    }
+
     void display() {
       inorder(raiz);
       cout << endl;
