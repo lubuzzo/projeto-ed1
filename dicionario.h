@@ -5,7 +5,6 @@
 #include "arvore.h"
 
 /* TODO:
-    - Falta a consulta (depende da consulta em árvore)
     - Precisa da consulta de palavra semelhante (2 primeiras letras iguais)
 */
 
@@ -41,5 +40,10 @@ public:
   //Inserir uma palavra no dicionário
   void inserir(std::string x) {
     t.inserir(x);
+  }
+
+  //Usa a função de buscar na árvore
+  bool buscar(std::string x) {
+    return t.buscar(x);
   }
 };

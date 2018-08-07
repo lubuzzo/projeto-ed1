@@ -3,7 +3,6 @@
 /*
   TODO:
     - Invés de árvore conter uma String, deveria conter uma Palavra (?)
-    - Falta a função de busca aqui. (Ao alterar para usar uma instância de Palavra no lugar de std::string, PRECISA manter como std::string no fundo - para poder usar os operadores de comparação de string
     - Avaliar se a função `Inserir` deveria receber uma palavra e direto atribuir ao atributo do Objeto, ou deve receber uma String e nela criar o Objeto - potencial risco de perda de valor, na questão parâmentro x valor)
 */
 
@@ -33,6 +32,22 @@ public:
 
   void inserir(std::string x) {
     raiz = inserir(x, raiz);
+  }
+
+  bool buscar(std::string x) {
+    return buscar(x, raiz);
+  }
+
+  bool buscar(std::string x, no*t) {
+    if (x > t->valor && (t->direita))
+      return buscar(x, t->direita);
+    else if (x < t->valor && (t->esquerda))
+      return buscar(x, t->esquerda);
+
+    if (x.compare(t->valor) == 0)
+      return true;
+    else
+      return false;
   }
 
   no* inserir(std::string x, no* t) {
