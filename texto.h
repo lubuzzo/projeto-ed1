@@ -51,12 +51,12 @@ public:
 
     while (!(infile.eof())) {
       while ( infile.get(x) && (x != '\t' && x != '\r' && x != ' ') ) {
-        if (x == ',' || x == '.' || x == '?' || x == '!' || x == ':' || x == '\n')
+        if (eh_sinal(x))
           break;
         word+= x;
       }
       texto.push_back(Palavra(word));
-      if (x == ',' || x == '.' || x == '?' || x == '!' || x == ':' || x == '\n')
+      if (eh_sinal(x))
         texto.push_back(Palavra(x));
       word.clear();
     }
