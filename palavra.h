@@ -38,4 +38,8 @@ class Palavra {
       return (!(this->getPalavra().compare(outra.getPalavra())));
     }
 
+    void operator=(std::string x) {
+      this->palavra = x;
+    }
+
 };

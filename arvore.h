@@ -1,17 +1,13 @@
 #include <iostream>
-
-/*
-  TODO:
-    - Invés de árvore conter uma String, deveria conter uma Palavra (?)
-    - Avaliar se a função `Inserir` deveria receber uma palavra e direto atribuir ao atributo do Objeto, ou deve receber uma String e nela criar o Objeto - potencial risco de perda de valor, na questão parâmentro x valor)
-*/
+#include <fstream>
+#include "palavra.h"
 
 using namespace std;
 
 class Arvore {
 private:
   struct no {
-    std::string valor;
+    Palavra valor;
     no* esquerda;
     no* direita;
     int peso;
@@ -39,12 +35,12 @@ public:
   }
 
   bool buscar(std::string x, no*t) {
-    if (x > t->valor && (t->direita))
+    if (x > t->valor.getPalavra() && (t->direita))
       return buscar(x, t->direita);
-    else if (x < t->valor && (t->esquerda))
+    else if (x < t->valor.getPalavra() && (t->esquerda))
       return buscar(x, t->esquerda);
 
-    if (x.compare(t->valor) == 0)
+    if (x.compare(t->valor.getPalavra()) == 0)
       return true;
     else
       return false;
@@ -56,18 +52,18 @@ public:
       t->valor = x;
       t->peso = 0;
       t->esquerda = t->direita = NULL;
-    } else if(x < t->valor) {
+    } else if(x < t->valor.getPalavra()) {
       t->esquerda = inserir(x, t->esquerda);
       if(peso(t->esquerda) - peso(t->direita) == 2) {
-        if(x < t->esquerda->valor)
+        if(x < t->esquerda->valor.getPalavra())
           t = rotEE(t);
         else
           t = rotDE(t);
       }
-    } else if(x > t->valor) {
+    } else if(x > t->valor.getPalavra()) {
       t->direita = inserir(x, t->direita);
       if(peso(t->direita) - peso(t->esquerda) == 2) {
-        if(x > t->direita->valor)
+        if(x > t->direita->valor.getPalavra())
           t = rotDD(t);
         else
           t = rotED(t);
@@ -82,7 +78,7 @@ public:
       if(t == NULL)
         return;
       inorder(t->esquerda);
-      cout << t->valor << " ";
+      cout << t->valor.getPalavra() << " ";
       inorder(t->direita);
     }
 
@@ -90,17 +86,19 @@ public:
       if(t == NULL)
         return;
       inorder_file(t->esquerda, ofs);
-      ofs << t->valor << '\n';
+      ofs << t->valor.getPalavra() << '\n';
       inorder_file(t->direita, ofs);
     }
 
     void display_file() {
       std::ofstream ofs;
       ofs.open("dic.txt");
+      if (!(ofs)) {
+        cout << "Erro ao gravar no dicionário!" << '\n';
+        exit(0);
+      }
 
       inorder_file(raiz, ofs);
-      //ofs << '\n';
-
       ofs.close();
     }
 

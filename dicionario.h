@@ -1,12 +1,9 @@
 #include <iostream>
-#include <fstream>
-#include <sstream>
 
 #include "arvore.h"
 
 /* TODO:
     - Precisa da consulta de palavra semelhante (2 primeiras letras iguais)
-    - CHecar se o ifstream e o ofstream conseguiram abrir o arquivo
 */
 
 class Dicionario {
@@ -18,6 +15,10 @@ public:
   Dicionario() {
     std::string line;
     std::ifstream infile("dic.txt");
+    if (!(infile)) {
+      cout << "Erro ao ler o dicionário!" << '\n';
+      exit(1);
+    }
     while (std::getline(infile, line)) {
       t.inserir(line);
     }
