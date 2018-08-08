@@ -2,22 +2,29 @@
   TODO:
     - Falta a parte de percorrer palavra por palavra (integra com a classe Corretor)
     - Falta a parte de alterar uma palavra
-    - E o contexto (palavra anterior e a seguinte)
     - Os métodos de interação com o usuário devem ser movidos para a Classe Corretor
 */
 
 #include "palavra.h"
 #include <fstream>
 #include <iostream>
-#include <list>
+#include <vector>
 
 class Texto {
 private:
-  std::list<Palavra> texto;
+  std::vector<Palavra> texto;
   std::string arquivo;
   std::ifstream infile;
 
 public:
+
+  void contexto(int pos) {
+    if ((pos-1) >= 0)
+      std::cout << "anterior: " << (texto[pos-1]).getPalavra() << '\n';
+
+    if ((pos+1)<=(texto.size()))
+      std::cout << "próxima: " << (texto[pos+1]).getPalavra() << '\n';
+  }
 
   std::string getArquivo() {
     return this->arquivo;
@@ -63,14 +70,14 @@ public:
 
   void display(std::ofstream& ofs) {
     std::string content;
-    for (Palavra i : texto) {
-      content+= i.getPalavra();
-      if (!(eh_sinal(i.getPalavra()[0]))) {
+    for (std::vector<Palavra>::iterator i = texto.begin(); i != texto.end(); ++i) {
+      content+= i->getPalavra();
+      if (!(eh_sinal(i->getPalavra()[0]))) {
         content+= " ";
       } else {
         content.pop_back();
         content.pop_back();
-        content+= i.getPalavra();
+        content+= i->getPalavra();
       }
     }
     ofs << content;

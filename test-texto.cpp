@@ -11,7 +11,10 @@ int main() {
 
   */
 
+  textin.contexto(3);
+
   textin.gravarArquivo();
+
 
   return 0;
 }
