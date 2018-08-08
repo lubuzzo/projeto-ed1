@@ -2,6 +2,7 @@
   TODO:
     - Falta a parte de percorrer palavra por palavra (integra com a classe Corretor)
     - Falta a parte de alterar uma palavra
+    - E o contexto (palavra anterior e a seguinte)
 */
 
 #include "palavra.h"
