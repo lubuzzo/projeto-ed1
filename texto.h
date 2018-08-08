@@ -3,6 +3,7 @@
     - Falta a parte de percorrer palavra por palavra (integra com a classe Corretor)
     - Falta a parte de alterar uma palavra
     - E o contexto (palavra anterior e a seguinte)
+    - Os métodos de interação com o usuário devem ser movidos para a Classe Corretor
 */
 
 #include "palavra.h"
