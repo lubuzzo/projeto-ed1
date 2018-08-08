@@ -11,6 +11,14 @@ class Palavra {
       palavra = "";
     }
 
+    Palavra(std::string x) {
+      palavra = x;
+    }
+
+    Palavra(char x) {
+      palavra = x;
+    }
+
     int compare_string(char *primeiro, char *segundo) {
       while (*primeiro == *segundo) {
         if (*primeiro == '\0' || *segundo == '\0')
