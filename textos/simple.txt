@@ -1,0 +1,7 @@
+Este é um exemplo de um arquivo texto muito simples: a função dele é testar o básico da classe Texto.
+
+Este é um segundo parágrafo, só para testar mesmo.
+
+Este aqui é um terceiro parágrafo totalmente desnecessário, mas fazer o quê...
+
+Este é um parágrafo para um teste estranho. Sacou?Sim
