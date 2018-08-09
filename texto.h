@@ -1,3 +1,5 @@
+#pragma once
+
 /*
   TODO:
     - Falta a parte de percorrer palavra por palavra (integra com a classe Corretor)
@@ -14,7 +16,7 @@ class Texto {
 private:
   std::vector<Palavra> texto;
   std::string arquivo;
-  std::ifstream infile;
+  std::ifstream * infile;
 
 public:
 
@@ -37,20 +39,21 @@ public:
 
     this->arquivo = nome_arquivo;
 
-    infile.open(nome_arquivo);
-    if (!(infile)) {
+    infile->open(nome_arquivo);
+    if (!(*infile)) {
       std::cout << "Erro ao ler o arquivo texto" << '\n';
       exit(1);
     }
   }
 
   Texto () {
+    infile = new std::ifstream;
     setArquivo();
     std::string word;
     char x;
 
-    while (!(infile.eof())) {
-      while ( infile.get(x) && (x != '\t' && x != '\r' && x != ' ') ) {
+    while (!(infile->eof())) {
+      while ( infile->get(x) && (x != '\t' && x != '\r' && x != ' ') ) {
         if (eh_sinal(x))
           break;
         word+= x;
