@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include "palavra.h"
 
 using namespace std;
@@ -16,6 +17,7 @@ private:
   };
 
   no* raiz;
+  std::vector<std::string> semelhantes;
 
 public:
   Arvore () {
@@ -26,6 +28,36 @@ public:
     if (raiz == NULL)
       return 1;
     return 0;
+  }
+
+  std::string doisCaracteres(std::string x) {
+    std::string retorno;
+    retorno.push_back(x[0]);
+    retorno.push_back(x[1]);
+    std::cout << retorno << '\n';
+    return retorno;
+  }
+
+  void showSemelhantes() {
+    std::cout << semelhantes.size() << '\n';
+    for (int i = 0; i < semelhantes.size(); i++) {
+      std::cout << semelhantes[i] << '\n';
+    }
+  }
+
+  void getSemelhantes(std::string x) {
+    semelhantes.clear();
+    getSemelhantes(x, raiz);
+  }
+
+  void getSemelhantes(std::string x, no *t) {
+    if(t->direita)
+      getSemelhantes(x, t->direita);
+    if(t->esquerda)
+      getSemelhantes(x, t->esquerda);
+
+    if (doisCaracteres(x).compare(doisCaracteres(t->valor.getPalavra())) == 0)
+      semelhantes.push_back(t->valor.getPalavra());
   }
 
   void inserir(std::string x) {

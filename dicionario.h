@@ -4,13 +4,10 @@
 
 #include "arvore.h"
 
-/* TODO:
-    - Precisa da consulta de palavra semelhante (2 primeiras letras iguais)
-*/
-
 class Dicionario {
 private:
   Arvore t;
+  std::vector<std::string> semelhantes;
 
 public:
   //Construtor lê o arquivo e gera a AVL
@@ -33,6 +30,14 @@ public:
   //Escrevendo, assim, apenas uma vez no disco
   ~Dicionario() {
     t.display_file();
+  }
+
+  void getSemelhantes(std::string compara) {
+    t.getSemelhantes(compara);
+  }
+
+  void showSemelhantes() {
+    t.showSemelhantes();
   }
 
   //Função para printar a árvore
