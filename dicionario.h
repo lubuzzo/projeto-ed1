@@ -1,12 +1,10 @@
 #pragma once
 
 #include <iostream>
-
 #include "arvore.h"
 
-/* TODO:
-    - Precisa da consulta de palavra semelhante (2 primeiras letras iguais)
-*/
+using namespace std;
+
 
 class Dicionario {
 private:
@@ -49,5 +47,13 @@ public:
   //Usa a função de buscar na árvore
   bool buscar(std::string x) {
     return t.buscar(x);
+  }
+
+  /* Aqui na classe Dicionário, ele irá mandar a árvore buscar palavras parecidas */
+  void similarWords(string firstTwoLetters) {
+
+	  cout << "\t";
+	  t.inorder_matchWords(t, firstTwoLetters);
+	  cout << endl;
   }
 };

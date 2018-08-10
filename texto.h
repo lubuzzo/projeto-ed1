@@ -11,6 +11,9 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <string>
+
+using namespace std;
 
 class Texto {
 private:
@@ -21,6 +24,8 @@ private:
 public:
 
   void contexto(int pos) {
+	  std::cout << "atual: " << (texto[pos]).getPalavra() << endl; //achei necessário já que o usuário deve saber em qual palavra está
+
     if ((pos-1) >= 0)
       std::cout << "anterior: " << (texto[pos-1]).getPalavra() << '\n';
 
@@ -134,4 +139,58 @@ public:
 
   }
 
+  /* Criei duas variáveis, 'word' e 'firstTwoLetters', 'word' irá receber a palavra na i-ésima posição do vetor texto
+  /* e 'firstTwoLetters' irá puxar as primeiras duas letras da string em 'word'. (Com certeza daria pra fazer text[0][0] + texto[0][1] 
+  /* direto em 'firstTwoLetters', mas assim fica mais limpo, acho.
+  /* Retorna 'firstTwoLetters', se existe. Caso contrário retorna NULL. */
+  string findSimilarWords(int i) {
+	  string word, firstTwoLetters;
+
+	  if(texto[i]) {
+		  cout << texto[i] << ":" << endl;
+
+		  word = texto[i];
+		  firstTwoLetters = word[0] + word[1];
+
+		  return firstTwoLetters;
+	  } else
+		  return NULL; // ******Não sei se vai retornar NULL como string ou NULL mesmo. Testar.
+  }
+
+  /* Este método deve supostamente adicionar palavras no dicionário e corrigi-las */
+  /****Nota: sinceramente não sei aonde que vai chamar isso aqui, aonde fica as chamadas que o usuário em si vai fazer. Portanto, na chamada criada deve-se passar o i do escopo  */
+  void changeDictionary(int i) {
+	  int op;
+
+	  /* Primeiro, mostra-se o contexto na tela */
+	  contexto(i);
+
+	  /* Depois, o menu */
+	  cout << endl << "Selecione uma opção:" << endl;
+	  cout << "\t" << "1 - Adicionar palavra atual no dicionário" << endl;
+	  cout << "\t" << "2 - Corrigir palavra atual" << endl;
+
+	  if (i <= texto.size())
+		  cout << "\t" << "3 - Ir para a próxima palavra" << endl;
+	  if (i > 0)
+		  cout << "\t" << "4 - Ir para a palavra anterior" << endl;
+
+	  /* Lê a opção do usuário */
+	  cin >> op;
+
+	  switch (op) {
+		  case 1:
+			  //insertTree(texto[pos].getPalavra);
+			  break;
+		  case 2:
+			  //?????
+			  break;
+		  case 3:
+			  changeDictionary(int ++i); //recursão que chama? não consegui pensar em uma forma mais 'inteligente' de fazer isso
+			  break;
+		  case 4:
+			  changeDictionary(int --i);
+			  break;
+	  }
+  }
 };

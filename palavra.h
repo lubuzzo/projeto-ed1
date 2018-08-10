@@ -3,9 +3,11 @@
 #include <string.h>
 #include <iostream>
 
+using namespace std;
+
 class Palavra {
   private:
-    std::string palavra;
+    string palavra;
 
   public:
 
@@ -13,7 +15,7 @@ class Palavra {
       palavra = "";
     }
 
-    Palavra(std::string x) {
+    Palavra(string x) {
       palavra = x;
     }
 
@@ -36,11 +38,20 @@ class Palavra {
         return -1;
     }
 
-    std::string getPalavra() {
+    string getPalavra() {
       return this->palavra;
     }
 
-    void setText(std::string texto) {
+	/* 'firstTwoLetters' irá receber as duas primeiras letras da palavra no nó e retornar para arvore.h */
+	string getFirstTwoLetters() {
+		string firstTwoLetters;
+
+		firstTwoLetters = this->palavra[0] + this->palavra[1];
+
+		return firstTwoLetters;
+	}
+
+    void setText(string texto) {
       this->palavra = texto;
     }
 
@@ -48,7 +59,7 @@ class Palavra {
       return (!(this->getPalavra().compare(outra.getPalavra())));
     }
 
-    void operator=(std::string x) {
+    void operator=(string x) {
       this->palavra = x;
     }
 

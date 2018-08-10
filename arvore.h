@@ -84,6 +84,28 @@ public:
       inorder(t->direita);
     }
 
+	/* Deve-se primeiro percorrer em order e depois bater os resultados 
+	/* Só para dar um pouco de contexto, 'words' irá receber as primeiras 2 letras da palavra na árvore
+	/* 'firstTwoLetters' são as duas primeiras letras da palavra atual no texto. */
+	void inorder_matchWords(no* t, string firstTwoLetters) {
+		string words;
+
+		if (t == NULL)
+			return;
+
+		inorder_matchWords(t->esquerda);
+		/* Aqui começa a diversão
+		/* 'words' irá receber as duas primeiras letras da palavra que está contido no nó*/
+		words = t->valor.getFirstTwoLetters(); //Esse passo vai rodar toda vez que entrar em um nó, melhor otimizar.
+
+		/* Aqui eu bato os resultados para saber se o nó atual é uma bate com a palavra atual. Se forem, já printa na tela */
+		if (!strcmp(words, firstTwoLetters))
+			cout << t->valor.getPalavra() << " ";
+
+		/* Aqui termina a diversão */
+		inorder_matchWords(t->direita);
+	}
+
     void inorder_file(no *t, std::ofstream& ofs) {
       if(t == NULL)
         return;
