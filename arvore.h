@@ -34,14 +34,15 @@ public:
     std::string retorno;
     retorno.push_back(x[0]);
     retorno.push_back(x[1]);
-    std::cout << retorno << '\n';
+    //std::cout << retorno << '\n';
     return retorno;
   }
 
   void showSemelhantes() {
-    std::cout << semelhantes.size() << '\n';
+    //std::cout << semelhantes.size() << '\n';
+    std::cout << "Opçoẽs:" << '\n';
     for (int i = 0; i < semelhantes.size(); i++) {
-      std::cout << semelhantes[i] << '\n';
+      std::cout << "[" << i << "]" << " " << semelhantes[i] << '\n';
     }
   }
 
