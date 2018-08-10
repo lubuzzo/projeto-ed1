@@ -30,6 +30,14 @@ public:
     return 0;
   }
 
+  std::string getSemelhantes(int pos) {
+    return semelhantes[pos];
+  }
+
+  std::vector<std::string> getSemelhantes() {
+    return semelhantes;
+  };
+
   std::string doisCaracteres(std::string x) {
     std::string retorno;
     retorno.push_back(x[0]);

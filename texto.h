@@ -20,6 +20,10 @@ private:
 
 public:
 
+  void setTexto(std::string x, int pos) {
+    texto[pos] = x;
+  }
+
   void contexto(int pos) {
     if ((pos-1) >= 0)
       std::cout << "anterior: " << (texto[pos-1]).getPalavra() << '\n';
@@ -132,6 +136,10 @@ public:
 
     display(ofs);
 
+  }
+
+  std::vector<Palavra> getTexto() {
+    return this->texto;
   }
 
 };

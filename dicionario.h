@@ -7,7 +7,6 @@
 class Dicionario {
 private:
   Arvore t;
-  std::vector<std::string> semelhantes;
 
 public:
   //Construtor lê o arquivo e gera a AVL
@@ -32,8 +31,20 @@ public:
     t.display_file();
   }
 
+  void display_file() {
+    t.display_file();
+  }
+
   void getSemelhantes(std::string compara) {
     t.getSemelhantes(compara);
+  }
+
+  std::string getSemelhantes(int pos) {
+    return t.getSemelhantes(pos);
+  };
+
+  int getSizeSemelhantes() {
+    return t.getSemelhantes().size();
   }
 
   void showSemelhantes() {
