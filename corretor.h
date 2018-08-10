@@ -26,6 +26,7 @@ public:
       if (!(dicio.buscar(textin.getTexto()[i].getPalavra())) && (!(textin.eh_sinal( textin.getTexto()[i].getPalavra()[0]) )) || (!(textin.getTexto()[i].getPalavra() != " "))) {
         std::cout << "Palavra: " << textin.getTexto()[i].getPalavra() << " não encontrada!" << '\n';
         do {
+          textin.contexto(i);
           std::cout << "\nSelecione uma das opções abaixo:" << '\n';
           std::cout << "1) Corrigir com base em palavras semelhantes" << '\n';
           std::cout << "2) Adicionar ao dicionário" << '\n';
