@@ -24,7 +24,7 @@ public:
     for (int i = 0; i < textin.getTexto().size(); i++) {
       pos = -1;
       if (!(dicio.buscar(textin.getTexto()[i].getPalavra())) && (!(textin.eh_sinal( textin.getTexto()[i].getPalavra()[0]) )) || (!(textin.getTexto()[i].getPalavra() != " "))) {
-        std::cout << "Palavra: " << textin.getTexto()[i].getPalavra() << " não encontrada!" << '\n';
+        std::cout << endl << "Palavra: " << textin.getTexto()[i].getPalavra() << " não encontrada!" << '\n';
         do {
           textin.contexto(i);
           std::cout << "\nSelecione uma das opções abaixo:" << '\n';
